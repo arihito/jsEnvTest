@@ -1,4 +1,5 @@
-export default class {
+
+class Dog {
   constructor(name) {
     this.name = name;
   }
@@ -8,3 +9,4 @@ export default class {
   }
 }
 
+export default Dog;
