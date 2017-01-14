@@ -4,6 +4,7 @@ import gulp from 'gulp';
 import babel from 'gulp-babel';
 import del from 'del';
 import eslint from 'gulp-eslint';
+import mocha from 'gulp-mocha';
 import webpack from 'webpack-stream';
 import webpackConfig from './webpack.config.babel';
 
@@ -17,6 +18,7 @@ const paths = {
   webpackFile: 'webpack.config.babel.js',
   libDir: 'lib',
   distDir: 'dist',
+  allLibTests: 'lib/test/**/*.js',
 };
 
 gulp.task('clean', () => del([
@@ -41,7 +43,12 @@ gulp.task('build', ['lint', 'clean'], () =>
   .pipe(gulp.dest(paths.libDir)),
 );
 
-gulp.task('main', ['build'], () =>
+gulp.task('test', ['build'], () =>
+  gulp.src(paths.allLibTests)
+  .pipe(mocha()),
+);
+
+gulp.task('main', ['test'], () =>
   gulp.src(paths.clientEntryPoint)
   .pipe(webpack(webpackConfig))
   .pipe(gulp.dest(paths.distDir)),

@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "test": "gulp test"
   },
   "babel": {
     "presets": [
@@ -46,6 +47,7 @@
     "babel-loader": "^6.2.10",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
+    "chai": "^3.5.0",
     "del": "^2.2.2",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
@@ -55,6 +57,9 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-eslint": "^3.0.1",
+    "gulp-mocha": "^3.0.1",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0",
     "webpack-stream": "^3.2.0"
   }
 }
